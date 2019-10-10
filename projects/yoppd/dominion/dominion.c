@@ -1,3 +1,5 @@
+//All the functions to build a dominion game object(deck of cards, score,  action)
+
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include "rngs.h"
@@ -34,6 +36,10 @@ int* kingdomCards(int k1, int k2, int k3, int k4, int k5, int k6, int k7,
     return k;
 }
 
+//InitializeGame(int int int struct)
+//sets up random num stream, checks number of players and sets up gamestate,
+//checks for independent set of 10 kingdom cards, set up gamestate curse/victory/treasure cards
+// 
 int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
                    struct gameState *state) {
     int i;
@@ -68,7 +74,7 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
 
     //initialize supply
     ///////////////////////////////
-
+    //supplycount = part of gamestate struct and keeps tract of amount of all 27 possible types of cards not in a hand or deck 
     //set number of Curse cards
     if (numPlayers == 2)
     {
@@ -103,11 +109,11 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
     state->supplyCount[gold] = 30;
 
     //set number of Kingdom cards
-    for (i = adventurer; i <= treasure_map; i++)       	//loop all cards
+    for (i = adventurer; i <= treasure_map; i++)       	//loop all kingdom cards (enums 7- 26)
     {
         for (j = 0; j < 10; j++)           		//loop chosen cards
         {
-            if (kingdomCards[j] == i)
+            if (kingdomCards[j] == i)       //kingdom cards array actually in game
             {
                 //check if card is a 'Victory' Kingdom card
                 if (kingdomCards[j] == great_hall || kingdomCards[j] == gardens)

@@ -1,3 +1,5 @@
+//2 main functions. main() executes game/ gives instructions; main2() initializes game
+
 /* 	Interactive Dominion Interface
 	Version 7
 

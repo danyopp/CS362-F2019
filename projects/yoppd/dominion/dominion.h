@@ -55,7 +55,7 @@ enum CARD
 struct gameState {
     int numPlayers; //number of players
     int supplyCount[treasure_map+1];  //this is the amount of a specific type of card given a specific number.
-    int embargoTokens[treasure_map+1];
+    int embargoTokens[treasure_map+1]; //treasure map is last enum(26)
     int outpostPlayed;
     int outpostTurn;
     int whoseTurn;
