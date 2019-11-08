@@ -5,14 +5,24 @@
 
 char inputChar()
 {
-    // TODO: rewrite this function
-    return ' ';
+    int randnum = (rand() % 94) + 32; //0-93 -> 32-125
+	//32-125 for ascii values
+	char newchar = (char)randnum;
+    return newchar;
 }
 
 char *inputString()
 {
-    // TODO: rewrite this function
-    return "";
+    char array[6];
+    //97 to 122 = a to z
+    int count;
+    for(count =0; count < 5; count++)
+    {
+    	array[count] = char(rand() % 26 + 97);
+    }
+    array[6] = '\0';
+
+    return &array;
 }
 
 void testme()
