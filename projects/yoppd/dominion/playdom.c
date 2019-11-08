@@ -1,17 +1,19 @@
+//playdom.c has main function of how two players play game
+
 #include "dominion.h"
 #include <stdio.h>
 #include "rngs.h"
 #include <stdlib.h>
 
 int main (int argc, char** argv) {
-    struct gameState G;
+    struct gameState G;   // dominion.h , num of players...
     int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,
                  sea_hag, tribute, smithy
                 };
 
     printf ("Starting game.\n");
 
-    initializeGame(2, k, atoi(argv[1]), &G);
+    initializeGame(2, k, atoi(argv[1]), &G); //sets up gamestate: checks nym players, checks independent kingdomcards, sets up card supplys, sets up decks(2d array), and deckcounts
 
     int money = 0;
     int smithyPos = -1;

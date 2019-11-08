@@ -1,4 +1,5 @@
 /* 	Interactive Dominion Interface
+Functions for printing user interface info
 
 Sam Heinith CS362
 1/26/2010
