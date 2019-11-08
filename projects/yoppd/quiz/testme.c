@@ -11,22 +11,24 @@ char inputChar()
     return newchar;
 }
 
-char *inputString()
+char *inputString(char *array)
 {
-    char array[6];
     //97 to 122 = a to z
     int count;
-    for(count =0; count < 5; count++)
+    for(count =0; count < 3; count++)
     {
-    	array[count] = char(rand() % 26 + 97);
+    	array[count] = (char)(rand() % 26 + 97);
     }
-    array[6] = '\0';
+    array[3] = (char)(rand() %	3 + 100 );
+    array[4] = 't';	
+    array[5] = '\0';
 
-    return &array;
+    return array;
 }
 
 void testme()
 {
+  char array[6];
   int tcCount = 0;
   char *s;
   char c;
@@ -35,7 +37,7 @@ void testme()
   {
     tcCount++;
     c = inputChar();
-    s = inputString();
+    s = inputString(array);
     printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);
 
     if (c == '[' && state == 0) state = 1;
