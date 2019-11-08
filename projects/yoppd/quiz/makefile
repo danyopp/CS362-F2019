@@ -1,12 +1,10 @@
-testme : testme.o
-	cc -o testme testme.o
-
-testme.o : testme.c
-	cc -c testme.c
+testme : testme.c
+	gcc -o testme testme.c -coverage -fpic -lm 
 
 clean : 
-	rm testme testme.o
+	rm testme testme.o testme.gcno testme.c.gcov testme.gcda 
 
 run : testme
 	./testme
+
 	  
