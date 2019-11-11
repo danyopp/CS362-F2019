@@ -1153,7 +1153,7 @@ int ambassadorEffect(int currentPlayer, int choice1, int choice2, struct gameSta
 
         for (i = 0; i < state->handCount[currentPlayer]; i++) //cycle through hand
         {
-            if (i != handPos && i == state->hand[currentPlayer][choice1] && i != choice1) //not played card, i = choice1(BUG)?, i 
+            if (i != handPos && choice1 == state->hand[currentPlayer][i] && i != choice1) //not played card, i = choice1(BUG)?, i 
             {  j++;  }
         }
         if (j < choice2)
@@ -1254,7 +1254,7 @@ int tributeEffect( struct gameState *state, int nextPlayer, int currentPlayer ) 
             //action card was discarded by next player so current player gets +2 action
             else { //Action Card
                 state->numActions = state->numActions + 2;
-            }
+	   }
         }
 
         return 0;
@@ -1271,11 +1271,11 @@ int mineEffect(int choice1, int choice2,  struct gameState *state, int handPos, 
 
         //not a defined card
         if (choice2 > treasure_map || choice2 <= curse) // BUG should just be < curse
-        {   return -1;   }
+        {   return -2;   }
 
         //cost of choice is greater than allowed amount
         if ( (getCost(state->hand[currentPlayer][choice1]) + 4) > getCost(choice2) ) // BUG cost of choice should be +3 not +4
-        {   return -1;   }
+        {   return -3;   }
 
         //gain card
         gainCard(choice2, state, 2, currentPlayer);
